@@ -57,7 +57,6 @@ def password(request):
     return render(request,'generator/password_woyyy.html',{'password':thepassword})
 
 def aboutme(request):
-
     return render(request,'generator/aboutme.html')
 
 def eggs(request):
