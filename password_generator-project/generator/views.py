@@ -56,6 +56,9 @@ def password(request):
         thepassword += random.choice(characters)    
     return render(request,'generator/password_woyyy.html',{'password':thepassword})
 
+def aboutme(request):
+
+    return render(request,'generator/aboutme.html')
 
 def eggs(request):
     return HttpResponse('<h1>Eggs are so tasty</h1>')
