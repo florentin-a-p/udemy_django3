@@ -1,11 +1,30 @@
-<!-- This is the new <h2>homepage</h2>
-
-This is the new <h2>homepage</h2>
-
-{{ password }} -->
-
-
 <h1> Password Generator </h1>
-<form>
+
+<!-- <form action="password_6786787"> -->
+<!-- <form action="password_woyyy"> -->
+<form action="{% url 'password' %}">
+<!-- <form action="password"></form> -->
+<!-- <form action="password_woyyy13543"> -->
+    <select name="length">
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12" selected="selected">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+    </select>
+<br>  
+    <input type="checkbox" name="uppercase"> Uppercase</input>
+<br>  
+    <input type="checkbox" name="lowercase"> Lowercase</input>
+<br>  
+    <input type="checkbox" name="special_symbols"> Special Symbols</input>
+<br>
+    <input type="checkbox" name="numbers"> Numbers</input>
+<br>  
+    <input type="submit" value="Generate passwrod"></input>
 </form>
 

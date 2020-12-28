@@ -21,5 +21,8 @@ urlpatterns = [
     path('',views.home),
     path('eggs',views.eggs),
     path('barbie',views.barbie),
+    # path('password_woyyy/',views.password),
+    # path('generatedpassword/',views.password,name='password'),
+    path('passpasspasspass/',views.password,name='password'),
     # path('',),
 ]
