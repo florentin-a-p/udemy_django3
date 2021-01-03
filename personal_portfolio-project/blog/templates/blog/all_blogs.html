@@ -1,8 +1,9 @@
-<h2>this is my list of blog articles</h2>
+<h1>this is my list of blog articles</h1>
 
 {% for project in projects %}
 
-title: {{project.title}}, url: {{ project.url }} <br/>
+<h2>{{project.title}}</h2><br/>
+{{project.date}} <br/>
 {{ project.image }} <br/>
 {{ project.image.url }} <br/> <br/>
 <img src="{{ project.image.url }}" width='100px' alt="">

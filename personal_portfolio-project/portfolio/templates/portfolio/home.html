@@ -1,4 +1,9 @@
 <h2>this is my bloggg</h2>
+{% load static %}
+
+<a href="{% static 'portfolio/the-analytics-stack-guidebook.pdf' %}">Resume</a> <br/>
+<img src="{% static 'portfolio/me_blue.png' %}" > <br/>
+
 
 {% for project in projects %}
 
