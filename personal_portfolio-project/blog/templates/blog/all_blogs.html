@@ -2,14 +2,18 @@
 
 {% for project in projects %}
 
-<h2>{{project.title}}</h2><br/>
+<a href="{% url 'blog:detail' project.id %}"><h2>{{project.title}}</h2></a><br/>
+
+
 {{project.date}} <br/>
 {{ project.image }} <br/>
 {{ project.image.url }} <br/> <br/>
 <img src="{{ project.image.url }}" width='100px' alt="">
 <!-- <img src="{{ project.image }}" alt=""> -->
+
 {% if project.url %}
 <br/> <a href="{{ project.url }}"> link </a> <br/>
 {% endif %}
 <br/>
+
 {% endfor %}
