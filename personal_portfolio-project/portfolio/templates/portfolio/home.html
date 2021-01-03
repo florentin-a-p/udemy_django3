@@ -1,3 +1,14 @@
-this is my bloggg
+<h2>this is my bloggg</h2>
 
-{{ projects }}
+{% for project in projects %}
+
+title: {{project.title}}, url: {{ project.url }} <br/>
+{{ project.image }} <br/>
+{{ project.image.url }} <br/> <br/>
+<img src="{{ project.image.url }}" width='100px' alt="">
+<!-- <img src="{{ project.image }}" alt=""> -->
+{% if project.url %}
+<br/> <a href="{{ project.url }}"> link </a> <br/>
+{% endif %}
+<br/>
+{% endfor %}
