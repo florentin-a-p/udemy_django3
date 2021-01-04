@@ -1,11 +1,14 @@
 <h1>this is my list of blog articles</h1>
-
+<h2>flo has written {{projects.count}} blog{{projects.count|pluralize}}</h2>
 {% for project in projects %}
 
 <a href="{% url 'blog:detail' project.id %}"><h2>{{project.title}}</h2></a><br/>
 
 
-{{project.date}} <br/>
+ 
+<h5>{{project.date|date:'M d Y'}}</h5> 
+<p>{{ project.description|striptags|truncatechars:100 }}</p>
+
 {{ project.image }} <br/>
 {{ project.image.url }} <br/> <br/>
 <img src="{{ project.image.url }}" width='100px' alt="">
