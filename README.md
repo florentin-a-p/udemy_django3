@@ -8,6 +8,7 @@ when pushing to git <br/>
 `git push` <br/>
 
 when pulling from git <br/>
+`git pull` <br/>
 `pip install -r requirements.txt` <br/>
 `python manage.py migrate` <br/>
 `python manage.py collectstatic` <br/>
