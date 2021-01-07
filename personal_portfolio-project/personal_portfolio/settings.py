@@ -28,7 +28,7 @@ SECRET_KEY = 'q692su4kwevi=zzas7a(!=p&mwsy9-q)bi(7bxm@%_p5ee!nur'
 DEBUG = False
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['localhost','florentinpurnama.pythonanywhere.com']
+ALLOWED_HOSTS = ['florentinpurnama.pythonanywhere.com']
 
 # Application definition
 
@@ -129,3 +129,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 # MEDIA_URL = '/coolpics/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+try: 
+    from .local_settings import *
+except ImportError:
+    print("Looks like no local file. You must be on production.")
