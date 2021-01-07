@@ -28,7 +28,7 @@ SECRET_KEY = 'q692su4kwevi=zzas7a(!=p&mwsy9-q)bi(7bxm@%_p5ee!nur'
 DEBUG = False
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['florentinpurnama.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost','florentinpurnama.pythonanywhere.com']
 
 # Application definition
 
