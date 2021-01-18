@@ -16,3 +16,6 @@ when pulling from git <br/>
 when creating new models/editing existing models <br/>
 `python manage.py makemigrations` <br/>
 `python manage.py migrate` <br/>
+
+creating superuser so you can login into localhost:8000/admin  <br/>
+`python manage.py createsuperuser` <br/>
