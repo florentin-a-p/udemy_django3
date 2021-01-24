@@ -73,7 +73,7 @@ def currenttodos(request):
     return render(request, 'todo/currenttodos.html',{'todos':todos})
 
 def viewtodo(request, todo_pk):
-    todos = ProjectTodoWooFlo.objects.filter(user=request.user, memo_complete_date__isnull=True).get(pk=todo_pk)
+    todos = ProjectTodoWooFlo.objects.filter(user=request.user).get(pk=todo_pk)
     
     if request.method == 'GET':
         form = TodoForm(instance=todos)
