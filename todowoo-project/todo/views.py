@@ -75,4 +75,8 @@ def viewtodo(request, todo_pk):
     todos = ProjectTodoWooFlo.objects.filter(user=request.user, memo_complete_date__isnull=True).get(pk=todo_pk)
     return render(request, 'todo/viewtodo.html',{'todos':todos})
 
+# grab to do from database from primary Key
+# send it to viewtodo template
+
+
 
