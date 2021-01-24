@@ -70,16 +70,19 @@ def logoutuser(request):
 
 def createtodo(request):
     if request.method == 'GET':
-        return render(request, 'todo/createtodo.html', {'form':TodoForm()})
-    else:
-        form = TodoForm(request.POST)
-        newtodo = form.save(commit=False)
-        newtodo.user = request.user
-        # newtodo.creator = request.user_name
-        # newtodo.user_name = request.user_name
-        newtodo.save()
-        return redirect('currenttodos')
+        return render(request, 'todo/createtodo.html', {'form':TodoForm()}) 
 
+    else:
+        try:
+            form = TodoForm(request.POST)
+            newtodo = form.save(commit=False)
+            newtodo.user = request.user
+            # newtodo.creator = request.user_name
+            # newtodo.user_name = request.user_name
+            newtodo.save()
+            return redirect('currenttodos')
+        except ValueError:
+            return render(request, 'todo/createtodo.html', {'form':TodoForm(), 'error':'bad data passed in. try again'}) 
 
 def currenttodos(request):
     return render(request, 'todo/currenttodos.html')
