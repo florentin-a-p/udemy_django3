@@ -3,6 +3,14 @@
 
 {% block content %}
 current
+
+<ul>
+    {% for todo in todos %}
+    <li>{{ todo.title }}</li>
+    <li>{{ todo.user }}</li>
+    {% endfor %}
+</ul>
+
 {% endblock %}
 
 

@@ -25,7 +25,7 @@ rows = objects <br/>
 <h3>creating superuser so you can login into localhost:8000/admin</h3>  
 `python manage.py createsuperuser` <br/>
 
-<h3>get vs post</h3> =
+<h3>get vs post</h3> 
 get request will show the username and password on URL on browser <br/>
 post request will not show the username and password on URL on browser <br/>
 

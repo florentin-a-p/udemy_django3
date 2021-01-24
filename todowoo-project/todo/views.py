@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from .forms import TodoForm
+from .models import ProjectTodoWooFlo
 
 def home(request):
     return render(request, 'todo/home.html')
@@ -85,7 +86,8 @@ def createtodo(request):
             return render(request, 'todo/createtodo.html', {'form':TodoForm(), 'error':'bad data passed in. try again'}) 
 
 def currenttodos(request):
-    return render(request, 'todo/currenttodos.html')
+    todos = ProjectTodoWooFlo.objects.all()
+    return render(request, 'todo/currenttodos.html',{'todos':todos})
 
 
 
