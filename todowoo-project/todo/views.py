@@ -9,7 +9,6 @@ from .models import ProjectTodoWooFlo
 def home(request):
     return render(request, 'todo/home.html')
 
-
 def signupuser(request):
     if request.method == 'GET':
         return render(request, 'todo/signupuser.html', {'form':UserCreationForm()})
@@ -31,7 +30,6 @@ def signupuser(request):
             #tell the user the passwords didn't match
             # print("hello")
             return render(request, 'todo/signupuser.html', {'form':UserCreationForm(), 'error':'Passwords did not match'})
-
 
 def loginuser(request):
     if request.method == 'GET':
@@ -72,5 +70,9 @@ def createtodo(request):
 def currenttodos(request):
     todos = ProjectTodoWooFlo.objects.filter(user=request.user, memo_complete_date__isnull=True)
     return render(request, 'todo/currenttodos.html',{'todos':todos})
+
+def viewtodo(request, todo_pk):
+    todos = ProjectTodoWooFlo.objects.filter(user=request.user, memo_complete_date__isnull=True).get(pk=todo_pk)
+    return render(request, 'todo/viewtodo.html',{'todos':todos})
 
 

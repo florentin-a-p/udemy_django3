@@ -10,12 +10,15 @@ current
         {% if todo.important %}
             <b> 
         {% endif %}
-        {{ todo.title }}</b>
+        title: {{ todo.title }}</b>
 
         {% if todo.memo_box %}
-        - {{ todo.memo_box }}
+        <br/> sneakpeek: {{ todo.memo_box }}
         {% endif %}
 
+
+        <a href="{% url 'viewtodo' todo.id %}"><h2>click to see more</h2></a>
+        
     </li>
     {% endfor %}
 </ul>
