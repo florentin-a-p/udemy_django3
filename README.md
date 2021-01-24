@@ -19,3 +19,7 @@ when creating new models/editing existing models <br/>
 
 creating superuser so you can login into localhost:8000/admin  <br/>
 `python manage.py createsuperuser` <br/>
+
+get vs post <br/>
+get request will show the username and password on URL on browser <br/>
+post request will not show the username and password on URL on browser <br/>

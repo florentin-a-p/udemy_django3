@@ -14,16 +14,19 @@ from django.contrib.auth.models import User
 class ProjectTodoWooFlo(models.Model):
     title = models.CharField(max_length=100, blank=True)
     description = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='portfolio/images/')
+    image = models.ImageField(upload_to='todo/images/')
     url = models.URLField(blank=True)
 
     memo_box = models.TextField(blank=True)
     # user_name = models.CharField(max_length=100, blank=True)
     user_email = models.EmailField(max_length=250)   
     memo_created_date = models.DateTimeField(auto_now_add=True)
-    memo_complete_date = models.DateTimeField(null=True,auto_now=True,blank=True)
+    # memo_complete_date = models.DateTimeField(null=True,auto_now=True,blank=True)
+    memo_complete_date = models.DateTimeField(null=True)
     important = models.BooleanField(default=False)
-    user_name = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user_name = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # creator = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
     def __str__(self):
