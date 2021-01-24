@@ -2,10 +2,16 @@
 
 
 {% block content %}
-current
+{{ error }}
 
-{{ todos.memo_box }} - {{ todos.id }}
+{{ todos.memo_box }}
 
+<form method="POST">
+    {% csrf_token %}
+
+{{ form.as_p }}
+<button type="submit">submit</button>
+</form>
 
 {% endblock %}
 

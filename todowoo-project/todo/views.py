@@ -73,10 +73,19 @@ def currenttodos(request):
 
 def viewtodo(request, todo_pk):
     todos = ProjectTodoWooFlo.objects.filter(user=request.user, memo_complete_date__isnull=True).get(pk=todo_pk)
-    return render(request, 'todo/viewtodo.html',{'todos':todos})
+    
+    if request.method == 'GET':
+        form = TodoForm(instance=todos)
+        return render(request, 'todo/viewtodo.html',{'todos':todos,'form':form})
+    else: 
+        try:
+            form = TodoForm(request.POST, instance=todos)
+            form.save()
+            return redirect('currenttodos')
+        except ValueError:
+            return render(request, 'todo/viewtodo.html',{'todos':todos,'form':form, 'error':'bad info'})
+             
 
-# grab to do from database from primary Key
-# send it to viewtodo template
 
 
 
