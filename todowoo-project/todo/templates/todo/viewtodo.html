@@ -10,8 +10,15 @@
     {% csrf_token %}
 
 {{ form.as_p }}
-<button type="submit">submit</button>
+<button type="submit">save</button>
 </form>
+
+
+<form method="POST" action="{% url 'completetodo' todos.id %}">
+    {% csrf_token %}
+<button type="submit">complete</button>
+</form>
+
 
 {% endblock %}
 

@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from .forms import TodoForm
 from .models import ProjectTodoWooFlo
+from django.utils import timezone
 
 def home(request):
     return render(request, 'todo/home.html')
@@ -86,6 +87,13 @@ def viewtodo(request, todo_pk):
             return render(request, 'todo/viewtodo.html',{'todos':todos,'form':form, 'error':'bad info'})
              
 
+def completetodo(request, todo_pk):
+    todos = get_object_or_404(ProjectTodoWooFlo, pk=todo_pk, user=request.user)
+    # todos = ProjectTodoWooFlo.objects.filter(user=request.user, memo_complete_date__isnull=True).get(pk=todo_pk)
+    if request.method == 'POST':
+        todos.memo_complete_date = timezone.now()
+        todos.save()
+        return redirect('currenttodos')
 
 
 
