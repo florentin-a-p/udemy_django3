@@ -95,5 +95,12 @@ def completetodo(request, todo_pk):
         todos.save()
         return redirect('currenttodos')
 
+def deletetodo(request, todo_pk):
+    todos = get_object_or_404(ProjectTodoWooFlo, pk=todo_pk, user=request.user)
+    # todos = ProjectTodoWooFlo.objects.filter(user=request.user, memo_complete_date__isnull=True).get(pk=todo_pk)
+    if request.method == 'POST':
+        todos.delete()
+        return redirect('currenttodos')
+
 
 

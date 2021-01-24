@@ -1,10 +1,11 @@
 {% extends 'todo/base.html' %}
 
-
 {% block content %}
 {{ error }}
 
 {{ todos.memo_box }}
+
+
 
 <form method="POST">
     {% csrf_token %}
@@ -17,6 +18,14 @@
 <form method="POST" action="{% url 'completetodo' todos.id %}">
     {% csrf_token %}
 <button type="submit">complete</button>
+</form>
+
+
+
+
+<form method="POST" action="{% url 'deletetodo' todos.id %}">
+    {% csrf_token %}
+<button type="submit">delete</button>
 </form>
 
 
