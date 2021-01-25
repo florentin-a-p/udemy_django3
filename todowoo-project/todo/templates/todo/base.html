@@ -10,13 +10,20 @@ logged in as {{ user.username }}
 </form>
 
 {% else %}
-
 <a href="{% url 'signupuser' %}">sign up</a>
 <a href="{% url 'loginuser' %}">login</a>
+
 
 {% endif %}
 <br>
 <br>
+
+
+<a href="{% url 'currenttodos' %}">current to dos</a>
+<a href="{% url 'completedtodos' %}">completed to dos</a>
+<a href="{% url 'createdtodos' %}">created to dos</a>
+<br/>
+<br/>
 
 {% block content %} 
 

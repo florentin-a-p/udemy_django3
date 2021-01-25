@@ -72,6 +72,16 @@ def currenttodos(request):
     todos = ProjectTodoWooFlo.objects.filter(user=request.user, memo_complete_date__isnull=True)
     return render(request, 'todo/currenttodos.html',{'todos':todos})
 
+
+def completedtodos(request):
+    todos = ProjectTodoWooFlo.objects.filter(user=request.user, memo_complete_date__isnull=False).order_by('-memo_complete_date')
+    return render(request, 'todo/completedtodos.html',{'todos':todos})
+
+def createdtodos(request):
+    todos = ProjectTodoWooFlo.objects.filter(user=request.user)
+    return render(request, 'todo/createdtodos.html',{'todos':todos})
+
+
 def viewtodo(request, todo_pk):
     todos = ProjectTodoWooFlo.objects.filter(user=request.user).get(pk=todo_pk)
     

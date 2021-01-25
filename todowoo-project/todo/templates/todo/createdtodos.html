@@ -1,0 +1,31 @@
+{% extends 'todo/base.html' %}
+
+
+{% block content %}
+completed
+
+<ul>
+    {% for todo in todos %}
+    <li>
+        {% if todo.important %}
+            <b> 
+        {% endif %}
+        title: {{ todo.title }}</b>
+
+        {% if todo.memo_box %}
+        <br/> sneakpeek: {{ todo.memo_box }}
+        {% endif %}
+
+
+        <a href="{% url 'viewtodo' todo.id %}">click to see more
+        
+        </a>
+        <br/> <br/> 
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+
+
+
