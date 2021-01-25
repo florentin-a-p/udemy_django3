@@ -80,6 +80,7 @@ def completedtodos(request):
     todos = ProjectTodoWooFlo.objects.filter(user=request.user, memo_complete_date__isnull=False).order_by('-memo_complete_date')
     return render(request, 'todo/completedtodos.html',{'todos':todos})
 
+@login_required
 def createdtodos(request):
     todos = ProjectTodoWooFlo.objects.filter(user=request.user)
     return render(request, 'todo/createdtodos.html',{'todos':todos})
